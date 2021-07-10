@@ -30,31 +30,31 @@
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#newListButtonClicked" text="New List..." />
                   <MenuItem mnemonicParsing="false" onAction="#deleteListButtonCLicked" text="Delete List..." />
-                  <Menu mnemonicParsing="false" text="Save/Load">
+                   <MenuItem mnemonicParsing="false" onAction="#clearListButtonClicked" text="Clear List..." />
+                   <Menu mnemonicParsing="false" text="Save/Load">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#saveListButtonClicked" text="Save this List..." />
+                        <MenuItem mnemonicParsing="false" onAction="#saveListButtonClicked" text="Save List..." />
                         <MenuItem mnemonicParsing="false" onAction="#loadListButtonClicked" text="Load List..." />
-                        <MenuItem mnemonicParsing="false" onAction="#saveAllListButtonClicked" text="Save all Lists..." />
-                        <MenuItem mnemonicParsing="false" onAction="#loadMultipleListsButtonClicked" text="Load all Lists..." />
                     </items>
                   </Menu>
                </items>
                 </Menu>
-            <Menu mnemonicParsing="false" text="Filter">
+            <Menu mnemonicParsing="false" text="View">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Filter Complete Items" />
-                  <MenuItem mnemonicParsing="false" text="Filter Incomplete Items" />
+                  <MenuItem mnemonicParsing="false" onAction="#showAllButtonClicked" text="Show All Items" />
+                  <MenuItem mnemonicParsing="false" onAction="#completeItemsFilterButtonClicked" text="Filter Complete Items" />
+                  <MenuItem mnemonicParsing="false" onAction="#incompleteItemsFilterButtonClicked" text="Filter Incomplete Items" />
+                  <MenuItem mnemonicParsing="false" onAction="#sortButtonClicked" text="Sort by Due Date" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Help">
+            <Menu mnemonicParsing="false" text="About">
               <items>
-                <MenuItem mnemonicParsing="false" text="About" />
-                  <MenuItem mnemonicParsing="false" text="Tutorial" />
+                <MenuItem mnemonicParsing="false" onAction="#aboutButtonClicked" text="Help" />
               </items>
             </Menu>
             </menus>
         </MenuBar>
-        <TextField onAction="#listTitleFieldClicked" prefHeight="41.0" prefWidth="350.0" promptText="Enter List Title..." GridPane.columnIndex="1" />
+        <TextField fx:id="listTitleField" prefHeight="41.0" prefWidth="350.0" promptText="Enter List Title..." GridPane.columnIndex="1" />
         <GridPane GridPane.columnSpan="2" GridPane.rowIndex="2">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="0.0" prefWidth="108.0" />
@@ -65,17 +65,17 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Button mnemonicParsing="false" onAction="#addTaskButtonClicked" prefHeight="45.0" prefWidth="117.0" text="Add Task" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+                <Button fx:id="addTaskButton" mnemonicParsing="false" onAction="#addTaskButtonClicked" prefHeight="45.0" prefWidth="117.0" text="Add Task" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
                     <GridPane.margin>
                         <Insets right="10.0" />
                     </GridPane.margin>
                 </Button>
-                <DatePicker onInputMethodTextChanged="#dueDateInputChanged" prefHeight="52.0" prefWidth="107.0" promptText="Due Date...">
+                <DatePicker fx:id="datePicker" onInputMethodTextChanged="#dueDateInputChanged" prefHeight="52.0" prefWidth="107.0" promptText="Due Date...">
                     <GridPane.margin>
                         <Insets left="10.0" />
                     </GridPane.margin>
                 </DatePicker>
-                <TextField alignment="CENTER" onInputMethodTextChanged="#descriptionInputChanged" prefHeight="43.0" prefWidth="531.0" promptText="Task Description..." GridPane.columnIndex="1" />
+                <TextField fx:id="descriptionField" alignment="CENTER" onInputMethodTextChanged="#descriptionInputChanged" prefHeight="43.0" prefWidth="531.0" promptText="Task Description..." GridPane.columnIndex="1" />
             </children>
             <GridPane.margin>
                 <Insets bottom="10.0" />
@@ -93,15 +93,17 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowSpan="3">
+            <ListView fx:id="itemList" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowSpan="3">
                <GridPane.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </GridPane.margin>
                <contextMenu>
                   <ContextMenu>
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Change Due Date" />
-                        <MenuItem mnemonicParsing="false" text="Change Description" />
+                         <MenuItem mnemonicParsing="false" onAction="#removeItemButtonClicked" text="Remove Item" />
+                         <MenuItem mnemonicParsing="false" onAction="#markItemButtonClicked" text="Mark Complete/Incomplete" />
+                        <MenuItem mnemonicParsing="false" onAction="#dueDateInputChanged" text="Change Due Date" />
+                        <MenuItem mnemonicParsing="false" onAction="#descriptionInputChanged" text="Change Description" />
                      </items>
                   </ContextMenu>
                </contextMenu>
