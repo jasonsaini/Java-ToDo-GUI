@@ -27,8 +27,6 @@ public class toDoList extends Application {
 
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
-            primaryStage.getIcons().add(icon);
-
             primaryStage.setTitle("Jason's To-Do List");
             primaryStage.setResizable(false);
             primaryStage.show();
