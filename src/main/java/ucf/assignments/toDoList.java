@@ -8,6 +8,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -26,10 +27,11 @@ public class toDoList extends Application {
 
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
-            primaryStage.setTitle("Jason's To-do List");
+            primaryStage.getIcons().add(icon);
+
+            primaryStage.setTitle("Jason's To-Do List");
             primaryStage.setResizable(false);
             primaryStage.show();
-
 
         } catch (IOException e) {
             e.printStackTrace();

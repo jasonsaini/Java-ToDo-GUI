@@ -24,8 +24,6 @@ class toDoListController
         + deleteListButtonCLicked()
         + saveListButtonClicked()
         + loadListButtonClicked()
-        + saveAllListButtonClicked()
-        + loadMultipleListsButtonClicked()
         + incompleteItemsFilterButtonClicked()
         + completeItemsButtonClicked()
         + aboutButtonClicked()

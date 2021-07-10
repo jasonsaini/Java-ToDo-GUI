@@ -41,7 +41,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                            <image>
-                              <Image url="@rey_sprite.png" />
+                              <Image url="@audio_and_visual/rey_sprite.png" />
                            </image>
                         </ImageView>
                      </children>

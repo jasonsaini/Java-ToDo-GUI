@@ -16,22 +16,21 @@ import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.cell.PropertyValueFactory;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import javax.security.auth.callback.Callback;
+import java.io.File;
 import java.io.*;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.Locale;
-import java.util.Map;
 
 public class toDoListController {
     @FXML
@@ -105,6 +104,8 @@ public class toDoListController {
     }
 
     private void addTask() {
+        Date now = new Date();
+        datePicker.setValue(LocalDate.now());
         try {
             // Get date string from datePicker
             LocalDate curDate = datePicker.getValue();
@@ -346,11 +347,16 @@ public class toDoListController {
 
     }
 
-    private void markItem() {
+    private void markItem(){
+        String wow = "src/main/resources/ucf/assignments/audio_and_visual/wow.wav";
+        Media sound = new Media(new File(wow).toURI().toString());
+        MediaPlayer player = new MediaPlayer(sound);
+        player.play();
         // get index of selected item in list view
         int selectedIndex = itemList.getSelectionModel().getSelectedIndex();
         // temp variable for list item object
         listItem current = list.get(selectedIndex);
+
         list.remove(selectedIndex);
         // invert the completion status of temp item
         current.isComplete = !current.isComplete;
@@ -358,7 +364,9 @@ public class toDoListController {
         list.add(current);
         itemList.setItems(list);
         sortByDueDate(list);
+
     }
+
 
     private void removeItem()
     {
