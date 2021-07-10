@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.toDoListController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="363.0" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="784.0" minHeight="10.0" prefHeight="755.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+        <MenuBar prefHeight="51.0" prefWidth="116.0" GridPane.valignment="TOP">
+            <menus>
+                <Menu mnemonicParsing="false" text="List">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#newListButtonClicked" text="New List..." />
+                  <MenuItem mnemonicParsing="false" onAction="#deleteListButtonCLicked" text="Delete List..." />
+                  <Menu mnemonicParsing="false" text="Save/Load">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#saveListButtonClicked" text="Save this List..." />
+                        <MenuItem mnemonicParsing="false" onAction="#loadListButtonClicked" text="Load List..." />
+                        <MenuItem mnemonicParsing="false" onAction="#saveAllListButtonClicked" text="Save all Lists..." />
+                        <MenuItem mnemonicParsing="false" onAction="#loadMultipleListsButtonClicked" text="Load all Lists..." />
+                    </items>
+                  </Menu>
+               </items>
+                </Menu>
+            <Menu mnemonicParsing="false" text="Filter">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Filter Complete Items" />
+                  <MenuItem mnemonicParsing="false" text="Filter Incomplete Items" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+              <items>
+                <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" text="Tutorial" />
+              </items>
+            </Menu>
+            </menus>
+        </MenuBar>
+        <TextField onAction="#listTitleFieldClicked" prefHeight="41.0" prefWidth="350.0" promptText="Enter List Title..." GridPane.columnIndex="1" />
+        <GridPane GridPane.columnSpan="2" GridPane.rowIndex="2">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="0.0" prefWidth="108.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="622.0" minWidth="10.0" prefWidth="523.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="10.0" prefWidth="94.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Button mnemonicParsing="false" onAction="#addTaskButtonClicked" prefHeight="45.0" prefWidth="117.0" text="Add Task" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+                    <GridPane.margin>
+                        <Insets right="10.0" />
+                    </GridPane.margin>
+                </Button>
+                <DatePicker onInputMethodTextChanged="#dueDateInputChanged" prefHeight="52.0" prefWidth="107.0" promptText="Due Date...">
+                    <GridPane.margin>
+                        <Insets left="10.0" />
+                    </GridPane.margin>
+                </DatePicker>
+                <TextField alignment="CENTER" onInputMethodTextChanged="#descriptionInputChanged" prefHeight="43.0" prefWidth="531.0" promptText="Task Description..." GridPane.columnIndex="1" />
+            </children>
+            <GridPane.margin>
+                <Insets bottom="10.0" />
+            </GridPane.margin>
+        </GridPane>
+      <GridPane GridPane.columnSpan="2" GridPane.rowIndex="1">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowSpan="3">
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin>
+               <contextMenu>
+                  <ContextMenu>
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Change Due Date" />
+                        <MenuItem mnemonicParsing="false" text="Change Description" />
+                     </items>
+                  </ContextMenu>
+               </contextMenu>
+            </ListView>
+         </children>
+      </GridPane>
+    </children>
+</GridPane>

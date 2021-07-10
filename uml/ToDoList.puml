@@ -1,0 +1,67 @@
+@startuml
+
+class toDoList
+{
+    + main()
+    + start()
+}
+
+class toDoListController
+{
+
+        + menuBar : MenuBar
+        + listTitleLabel : TextField
+        + addTaskButton : Button
+        + dateSelector : datePicker
+        + descriptionField : TextField
+        + listBody : ListView
+
+        + listTitleFieldClicked()
+        + addTaskButtonClicked()
+        + descriptionInputChanged()
+        + dueDateInputChanged()
+        + newListButtonClicked()
+        + deleteListButtonCLicked()
+        + saveListButtonClicked()
+        + loadListButtonClicked()
+        + saveAllListButtonClicked()
+        + loadMultipleListsButtonClicked()
+        + incompleteItemsFilterButtonClicked()
+        + completeItemsButtonClicked()
+
+        - editTitleField()
+        - addTask()
+        - editDescription()
+        - editDueDate()
+        - createNewList()
+        - deleteList()
+        - saveList()
+        - loadList()
+        - saveAllLists()
+        - loadMultipleLists()
+        - filterIncomplete()
+        - filterComplete()
+
+}
+
+
+class listItem
+{
+    description : String
+    dueDate : String
+    isComplete : boolean
+
+    setDescription()
+    setDueDate()
+    setComplete()
+    getDescription() : String
+    getDueDate() : String
+    getCompletedStatus() : boolean
+    objectToTaskString() : String
+}
+
+javafx.Application <|-- toDoList
+toDoList - toDoListController
+toDoListController -- listItem
+
+@enduml
