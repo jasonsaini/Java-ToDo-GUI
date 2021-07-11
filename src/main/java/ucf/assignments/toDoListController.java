@@ -101,7 +101,8 @@ public class toDoListController {
 
     private void addTask() {
         Date now = new Date();
-        datePicker.setValue(LocalDate.now());
+        if (datePicker.getValue() == null)
+        {datePicker.setValue(LocalDate.now());}
         try {
             // Get date string from datePicker
             LocalDate curDate = datePicker.getValue();
@@ -197,6 +198,7 @@ public class toDoListController {
             // open a new window of the list application
             Parent root = FXMLLoader.load(getClass().getResource("ToDoList.fxml"));
 
+            // initialize new window for list
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
@@ -254,6 +256,8 @@ public class toDoListController {
         listLoader.getExtensionFilters().add(extFilter);
         File toLoad = listLoader.showOpenDialog(new Stage());
 
+
+        // try parsing JSON File
         try
         {
             Object obj = new JSONParser().parse(new FileReader(toLoad));
@@ -377,6 +381,7 @@ public class toDoListController {
 
 
     }
+
 
     private void sortByDueDate(ObservableList<listItem> list)
     {
