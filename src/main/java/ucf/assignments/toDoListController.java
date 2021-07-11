@@ -61,10 +61,6 @@ public class toDoListController {
         createNewList();
     }
 
-    public void deleteListButtonCLicked(ActionEvent actionEvent) {
-        deleteList();
-    }
-
     public void clearListButtonClicked(ActionEvent actionEvent) {
         clearList();
     }
@@ -116,6 +112,7 @@ public class toDoListController {
             // add listItem to listView in GUI
             list.add(toAdd);
             itemList.setItems(list);
+            // clear description text field for user
             descriptionField.clear();
         } catch (Exception e) {
             e.printStackTrace();
@@ -136,6 +133,7 @@ public class toDoListController {
 
         Parent root = null;
         try {
+            // load popup fxml for editing description
             root = FXMLLoader.load(getClass().getResource("editDescriptionPopup.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
@@ -144,19 +142,24 @@ public class toDoListController {
         int selectedIndex = itemList.getSelectionModel().getSelectedIndex();
         // temp variable for list item object
         listItem toSend = list.get(selectedIndex);
+
+        // send user date to popup controller
         Scene scene = new Scene(root);
         Stage stage = new Stage();
-
         stage.setUserData(toSend);
 
+        // initialize scene and stage
         stage.setScene(scene);
         stage.setTitle("Edit Description");
+
+        // Block unnessecary resizing of popup window
         stage.setResizable(false);
         stage.initModality(Modality.APPLICATION_MODAL);
+        // Wait for close on event handler
         stage.showAndWait();
+
+        // clear selected index after editing description
         itemList.getSelectionModel().clearSelection();
-
-
     }
 
 
@@ -171,22 +174,27 @@ public class toDoListController {
         int selectedIndex = itemList.getSelectionModel().getSelectedIndex();
         // temp variable for list item object
         listItem toSend = list.get(selectedIndex);
+
         Scene scene = new Scene(root);
         Stage stage = new Stage();
 
+        // send list item to due date popup
         stage.setUserData(toSend);
 
+        // initialize scene
         stage.setScene(scene);
         stage.setTitle("Edit Due Date");
+        // restrict resizability
         stage.setResizable(false);
-        stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
+        // clear selected index
         itemList.getSelectionModel().clearSelection();
 
     }
 
     private void createNewList() {
         try {
+            // open a new window of the list application
             Parent root = FXMLLoader.load(getClass().getResource("ToDoList.fxml"));
 
             Scene scene = new Scene(root);
@@ -200,17 +208,6 @@ public class toDoListController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private void deleteList() {
-        // prompt "are you sure" dialog
-
-        // if yes
-        // clear list view
-        // clear title text field
-        // close window without saving to file
-        // if no
-        // pass, do nothing
     }
 
     private void saveList() {
@@ -386,9 +383,6 @@ public class toDoListController {
 
         list.sort((p1,p2) -> p1.dueDate.toString().compareTo(p2.dueDate.toString()));
     }
-
-
-
 
 
 }

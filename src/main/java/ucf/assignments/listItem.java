@@ -14,6 +14,7 @@ public class listItem {
     LocalDate dueDate;
     boolean isComplete;
 
+    // constructor with default incomplete status
     public listItem(String Description, LocalDate DueDate)
     {
         this.description = Description;
@@ -21,6 +22,7 @@ public class listItem {
         this.isComplete = false;
     }
 
+    // constructor with status as argument
     public listItem(String description, LocalDate dueDate, boolean isComplete)
     {
         this.description = description;
@@ -51,7 +53,9 @@ public class listItem {
     @Override
     public String toString()
     {
+
         String monthString;
+        // concatenate 0 to string to maintain YYYY-MM-DD format
         if (getDueDate().getMonthValue() < 10)
         {
                 monthString = "0" + getDueDate().getMonthValue();
@@ -72,6 +76,7 @@ public class listItem {
         }
         String dateString = dueDate.getYear() + "-" + monthString + "-" + dayString;
 
+        // Mark completed within string
         String status = "";
         if(isComplete)
         {

@@ -9,25 +9,20 @@ class toDoList
 class toDoListController
 {
 
-        + menuBar : MenuBar
         + listTitleLabel : TextField
-        + addTaskButton : Button
-        + dateSelector : datePicker
+        + datePicker : DatePicker
         + descriptionField : TextField
-        + listBody : ListView
+        + listTitleField : textField
 
-        + listTitleFieldClicked()
         + addTaskButtonClicked()
+        + aboutButtonClicked()
         + descriptionInputChanged()
         + dueDateInputChanged()
         + newListButtonClicked()
-        + deleteListButtonCLicked()
         + saveListButtonClicked()
         + loadListButtonClicked()
         + incompleteItemsFilterButtonClicked()
         + completeItemsButtonClicked()
-        + aboutButtonClicked()
-        + tutorialButtonClicked()
 
         - editTitleField()
         - addTask()
@@ -41,9 +36,16 @@ class toDoListController
         - loadMultipleLists()
         - filterIncomplete()
         - filterComplete()
-
-        - displayDedicationDialog()
         - displayTutorial()
+}
+
+class descriptionPopUpController
+{
+    changeDescriptionTextField : TextField
+    changeDescriptionButton : Button
+
+    + changeDescriptionButtonClicked()
+    - setNewDescription()
 }
 
 
@@ -62,8 +64,16 @@ class listItem
     objectToTaskString() : String
 }
 
+class editDueDatePopupController
+{
+   datePicker : DatePicker
+   + changeDueDateButtonClicked()
+   - setNewDueDate()
+}
+
 javafx.Application <|-- toDoList
 toDoList - toDoListController
 toDoListController -- listItem
-
+toDoListController - descriptionPopUpController
+toDoListController - editDueDatePopupController
 @enduml
