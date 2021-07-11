@@ -52,25 +52,29 @@
                   <GridPane>
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
+                     <children>
+                        <TextArea prefHeight="200.0" prefWidth="200.0" text="To create a new list:  &#10;&#10;Navigate to the menu bar on the upper left corner of the window. &#10;Then, List &gt;&gt;&gt; New List...&#10;&#10;&#10;To clear an existing list:&#10;&#10;Navigate to the menu bar:&#10;List &gt;&gt;&gt; Clear List&#10;This wil clear all the items in a list. &#10;However, it will retain the title of the list.">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextArea>
+                     </children>
                   </GridPane>
                </content></Tab>
             <Tab text="Saving &amp; Loading Lists">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextArea editable="false" prefHeight="372.0" prefWidth="600.0" text="To create a new list:  &#10;Navigate to the menu bar on the upper left corner of the window. &#10;Then, List &gt;&gt;&gt; New List...&#10;&#10;&#10;To clear an existing list&#10;Navigate to the menu bar:&#10;List &gt;&gt;&gt; Clear List&#10;This wil clear all the items in a list. &#10;However, it will retain the title of the list.">
+                        <TextArea editable="false" prefHeight="372.0" prefWidth="600.0" text="This application uses JSON files to store lists to external storage.&#10;Upon saving, it uses the list title field to create a file name.&#10;If it is empty, the file name will be blank&#10;&#10;To save a list:&#10;     List &gt;&gt; Save/Load &gt;&gt; Save List...&#10;     This will open a new dialog where you can edit the file name &amp;&#10;     choose the directory.&#10;&#10;To load a list:&#10;     List &gt;&gt; Save/Load &gt;&gt; Load List...&#10;     This will open a dialog where you can select a valid list JSON&#10;      file that was previously saved.   ">
                            <padding>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
                            <font>
-                              <Font size="19.0" />
+                              <Font size="18.0" />
                            </font>
                         </TextArea>
                      </children></AnchorPane>
@@ -78,12 +82,26 @@
             </Tab>
             <Tab text="Editing Tasks">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea prefHeight="372.0" prefWidth="600.0" text="To edit any task in a list, right click on it to open a context menu.&#10;This menu contains 4 options:&#10;&#10;1) Remove an item: removes an item and all its data from a list. (This cannot be undone currently)&#10;&#10;2) Mark Complete/Incomplete: changes the status of current completion status of an item.&#10;    (Incomplete --&gt; complete or complete --&gt; incomplete)&#10;    Headphone Warning: This will play a sound on activation.&#10;&#10;3) Change Due Date: Opens a popup that allows you to change the due date of a selected item.&#10;&#10;4) Change Description: Opens a popup that allows you to change the description of a selected item.&#10;">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </TextArea>
+                     </children></AnchorPane>
               </content>
             </Tab>
-            <Tab text="Fitlering Items">
+            <Tab text="Filtering Items">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea prefHeight="372.0" prefWidth="600.0" text="To access the view options, navigate to the upper left corner of the window &amp;&#10; select &quot;View&quot;&#10;There are 4 ways to view a list:&#10;&#10;1) Show All Items: shows all items regardless of completion status. &#10;This is the default view of the list.&#10;&#10;2) Filter Complete Items: filters out incomplete items &amp;&#10; shows only those that have been completed&#10;&#10;3) Filter Incomplete Items: filters out complete items &amp;&#10;shows only those that are incomplete&#10;&#10;4) Sort by Due Date: This option sorts the current items by soonest due date">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextArea>
+                     </children></AnchorPane>
               </content>
             </Tab>
         </tabs>
