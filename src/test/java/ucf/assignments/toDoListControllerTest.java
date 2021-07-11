@@ -178,7 +178,7 @@ class toDoListControllerTest {
         // initialize test directory
         String testDir = "src/test/java/ucf/assignments/test_files/editsDescriptionTest1.json";
 
-        // retrieve file with description test obejct
+        // retrieve file with description test object
         File testFile = new File(testDir);
         Object obj = new Object();
         try {
@@ -214,13 +214,58 @@ class toDoListControllerTest {
     @Test
     void marksComplete()
     {
+        // populate a list with an incomplete item
+        // set it to complete via context menu in GUI
+        // initilaize directory of corresponding list file
+        String testDir = "src/test/java/ucf/assignments/test_files/marksCompleteTest1.json";
 
+        // retrieve file with list item
+        File testFile = new File(testDir);
+        Object obj = new Object();
+        try {
+            obj = new JSONParser().parse(new FileReader(testFile));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        // retrieve item JSON object
+        JSONObject currentObject = (JSONObject)obj;
+        JSONArray itemsList = (JSONArray)currentObject.get("items");
+        JSONObject itemObj = (JSONObject)itemsList.get(0);
+        // assert that isComplete status of item is true after mark
+        boolean expected = true;
+        boolean actual = (boolean)itemObj.get("isComplete");
+        assertEquals(expected,actual);
     }
 
     @Test
     void marksIncomplete()
     {
+        // populate a list with an incomplete item
+        // set it to complete via context menu in GUI
+        // initilaize directory of corresponding list file
+        String testDir = "src/test/java/ucf/assignments/test_files/marksIncompleteTest1.json";
 
+        // retrieve file with list item
+        File testFile = new File(testDir);
+        Object obj = new Object();
+        try {
+            obj = new JSONParser().parse(new FileReader(testFile));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        // retrieve item JSON object
+        JSONObject currentObject = (JSONObject)obj;
+        JSONArray itemsList = (JSONArray)currentObject.get("items");
+        JSONObject itemObj = (JSONObject)itemsList.get(0);
+
+        // assert that isComplete status of item is false after marking incomplete
+        boolean expected = false;
+        boolean actual = (boolean)itemObj.get("isComplete");
+        assertEquals(expected,actual);
     }
 
     @Test
