@@ -47,10 +47,33 @@
                      </children>
                   </GridPane>
                </content></Tab>
-          <Tab text="Creating &amp; Deleting Lists" />
+          <Tab text="Creating &amp; Clearing Lists">
+               <content>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </content></Tab>
             <Tab text="Saving &amp; Loading Lists">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea editable="false" prefHeight="372.0" prefWidth="600.0" text="To create a new list:  &#10;Navigate to the menu bar on the upper left corner of the window. &#10;Then, List &gt;&gt;&gt; New List...&#10;&#10;&#10;To clear an existing list&#10;Navigate to the menu bar:&#10;List &gt;&gt;&gt; Clear List&#10;This wil clear all the items in a list. &#10;However, it will retain the title of the list.">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextArea>
+                     </children></AnchorPane>
               </content>
             </Tab>
             <Tab text="Editing Tasks">

@@ -29,7 +29,6 @@
                 <Menu mnemonicParsing="false" text="List">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#newListButtonClicked" text="New List..." />
-                  <MenuItem mnemonicParsing="false" onAction="#deleteListButtonCLicked" text="Delete List..." />
                    <MenuItem mnemonicParsing="false" onAction="#clearListButtonClicked" text="Clear List..." />
                    <Menu mnemonicParsing="false" text="Save/Load">
                     <items>
